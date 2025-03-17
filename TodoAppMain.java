@@ -13,6 +13,13 @@ public class TodoAppMain {
         //실행결과를 반환받는다.
         TodoInsertController controller = new TodoInsertController();
         int result = controller.insertTodo(request);
-        System.out.println("Result: " + result);               
+        System.out.println("Result: " + result);       
+        //quiz(상세보기)
+        //사용자로부터 입력받은 키를 TodoReadController(selectTodo)전달하여
+        //TodoService(selectService)->TodoDao(selectDao)작업수행하고
+        //실행결과를 (TodoResponseDTO)를 반환받는다.  
+        TodoReadController readCtrl = new TodoReadController();
+        TodoResponseDTO response = readCtrl.selectTodo(1);
+        System.out.println(response);      
     }
 }

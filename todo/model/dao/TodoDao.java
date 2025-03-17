@@ -3,4 +3,8 @@ public class TodoDao {
         System.out.println("-------dao insertRow");
         return 0;
     }
+    public TodoResponseDTO selectRow(int seq){
+        System.out.println("-------dao selectDao");
+        return null;
+    }
 }
