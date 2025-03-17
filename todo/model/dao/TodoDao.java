@@ -25,7 +25,7 @@ public class TodoDao {
     }
     //전체보기
     public List<TodoResponseDTO> listRow(){
-        System.out.println("-------dao selectRow");
+        System.out.println("-------dao listRow");
         return null;
     }
 }
