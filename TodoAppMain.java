@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class TodoAppMain {
     public static void main(String[] args) {
         TodoRequestDTO request= TodoRequestDTO.builder()
@@ -20,6 +22,18 @@ public class TodoAppMain {
         //실행결과를 (TodoResponseDTO)를 반환받는다.  
         TodoReadController readCtrl = new TodoReadController();
         TodoResponseDTO response = readCtrl.selectTodo(1);
-        System.out.println(response);      
+        System.out.println(response);
+        //quiz (삭제) 
+        TodoDeleteController delCtrl=new TodoDeleteController();
+        int deleteResult= delCtrl.deleteTodo(1);
+        System.out.println(deleteResult);
+        //quiz (수정)
+        TodoUpdateController updateCtrl=new TodoUpdateController();
+        int updateResult=updateCtrl.updateTodo(request);
+        System.out.println(updateResult);
+        //quiz (전체보기)
+        TodoListController listCtrl=new TodoListController();
+        List<TodoResponseDTO> listResult=listCtrl.listTodo();
+        System.out.println(listResult);      
     }
 }
