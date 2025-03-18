@@ -41,7 +41,7 @@ public class FrontController {
     public int delete(){
         System.out.println("-----FrontController delete");
         TodoDeleteController deleteCtrl=new TodoDeleteController();
-        int delete=deleteCtrl.deleteTodo(0);
+        int delete=deleteCtrl.deleteTodo(1);
         return delete;
     }
 }
