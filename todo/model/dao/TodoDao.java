@@ -45,6 +45,7 @@ public class TodoDao {
         for(TodoResponseDTO todo :list){
             if(todo.getSeq()==seq){
                 list.remove(todo);
+                System.out.println("삭제됨");
                 return 1;
             }
         }
@@ -60,6 +61,7 @@ public class TodoDao {
                 todo.setStartDate(request.getStartDate());
                 todo.setEndDate(request.getEndDate());
                 todo.setPriority(request.getPriority());
+                System.out.println("수정완료");
                 return 1;
             }
         }
