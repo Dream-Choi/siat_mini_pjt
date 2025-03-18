@@ -1,8 +1,10 @@
 package todo.view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import todo.front.FrontController;
+import todo.model.domain.TodoResponseDTO;
 
 public class TodoView {
     private FrontController front;
@@ -20,16 +22,16 @@ public class TodoView {
             int number= scan.nextInt();
             switch (number) {
                 case 1:
-                    front.list();
+                    list();
                     break;
                 case 2:
-                    front.register();
+                    register();
                     break;
                 case 3:
-                    front.update();
+                    update();
                     break;
                 case 4:
-                    front.delete();
+                    delete();
                     break;
 
                 case 99:
@@ -39,17 +41,32 @@ public class TodoView {
             }
         }
     }
-}
-    /*public void list(){
-
+    public void list(){
+        List<TodoResponseDTO> list= front.list();
+        System.out.println(list);
     }
     public void register(){
-
+        System.out.println("-------Todo register");
+        Scanner scan=new Scanner(System.in);
+        System.out.print("제목:");
+        String title=scan.nextLine();
+        System.out.print("내용:");
+        String content=scan.nextLine();
+        System.out.print("시작일:");
+        String startDate=scan.nextLine();
+        System.out.print("종료일:");
+        String endDate=scan.nextLine();
+        System.out.print("우선순위:");
+        int priority=scan.nextInt();
+        int register=front.register(title,content,startDate,endDate,priority);
+        System.out.println(register);
     }
     public void update(){
-
+        int update=front.update();
+        System.out.println(update);
     }
     public void delete(){
-
+        int delete=front.delete();
+        System.out.println(delete);
     }
-*/
+}

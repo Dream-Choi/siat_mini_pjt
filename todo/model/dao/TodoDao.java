@@ -1,11 +1,17 @@
 package todo.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import todo.model.domain.TodoRequestDTO;
 import todo.model.domain.TodoResponseDTO;
 
 public class TodoDao {
+    private List<TodoResponseDTO> list;
+    private int i;
+    public TodoDao(){
+        list= new ArrayList<TodoResponseDTO>();
+    }
     //입력
     public int insertRow(TodoRequestDTO request){
         System.out.println("-------dao insertRow");
