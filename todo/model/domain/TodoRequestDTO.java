@@ -7,7 +7,9 @@ import lombok.ToString;
 @Builder
 @Getter
 @ToString
+
 public class TodoRequestDTO {
+    private int seq;
     private String title;
     private String content;
     private String startDate;

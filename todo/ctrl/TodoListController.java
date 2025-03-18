@@ -7,7 +7,10 @@ import todo.service.TodoService;
 public class TodoListController {
     private TodoService service;
     public TodoListController(){
-        service=new TodoService();
+
+    }
+    public TodoListController(TodoService service){
+        this.service= service;
     }
     public List<TodoResponseDTO> listTodo(){
         System.out.println("----------ctrl listCtrl");

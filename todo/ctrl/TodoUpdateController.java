@@ -6,7 +6,9 @@ import todo.service.TodoService;
 public class TodoUpdateController {
     private TodoService service;
     public TodoUpdateController(){
-        service=new TodoService();
+    }
+    public TodoUpdateController(TodoService service){
+        this.service=service;
     }
     public int updateTodo(TodoRequestDTO request){
         System.out.println("----------ctrl updateCtrl");

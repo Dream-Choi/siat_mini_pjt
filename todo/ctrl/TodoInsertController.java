@@ -5,8 +5,12 @@ import todo.service.TodoService;
 
 public class TodoInsertController {
     private TodoService service;
+
     public TodoInsertController(){
-        service=new TodoService();
+    }
+    public TodoInsertController(TodoService service){
+        this.service=service;
+
     }
     public int insertTodo(TodoRequestDTO request){
         System.out.println("----------ctrl insertCtrl");
