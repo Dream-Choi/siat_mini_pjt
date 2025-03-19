@@ -1,6 +1,7 @@
 package todo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import todo.model.dao.TodoDao;
 import todo.model.domain.TodoRequestDTO;
@@ -15,7 +16,7 @@ public class TodoService {
         System.out.println("------ service insertService");
         return dao.insertRow(request);
     }
-    public TodoResponseDTO selectService(int seq){
+    public Optional<TodoResponseDTO> selectService(int seq){
         System.out.println("------ service selectService");
         return dao.selectRow(seq);
     }

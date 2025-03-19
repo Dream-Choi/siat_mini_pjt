@@ -1,5 +1,7 @@
 package todo.ctrl;
 
+import java.util.Optional;
+
 import todo.model.domain.TodoResponseDTO;
 import todo.service.TodoService;
 
@@ -12,7 +14,12 @@ public class TodoReadController {
     }
     public TodoResponseDTO selectTodo(int seq){
         System.out.println("----------ctrl selectCtrl");
-        return service.selectService(seq);
+        Optional<TodoResponseDTO> response=service.selectService(seq);
+        if(response.isPresent()){
+            return response.get();
+        }else{
+            return null;
+        }
     }
 
 }

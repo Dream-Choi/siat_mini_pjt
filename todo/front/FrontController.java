@@ -2,10 +2,13 @@ package todo.front;
 
 import java.util.List;
 
+import todo.ctrl.TodoCheckController;
 import todo.ctrl.TodoDeleteController;
 import todo.ctrl.TodoInsertController;
 import todo.ctrl.TodoListController;
 import todo.ctrl.TodoReadController;
+import todo.ctrl.TodoSortController;
+import todo.ctrl.TodoUncheckController;
 import todo.ctrl.TodoUpdateController;
 import todo.factory.BeanFactory;
 import todo.model.domain.TodoRequestDTO;
@@ -25,6 +28,18 @@ public class FrontController {
         List<TodoResponseDTO> list=listCtrl.listTodo();
         return list;
     }
+    public List<TodoResponseDTO> checkList(){
+        System.out.println("-----FrontController list");
+        TodoCheckController listCtrl=(TodoCheckController)factory.getCtrl("check");
+        List<TodoResponseDTO> checkList=listCtrl.checkTodo();
+        return checkList;
+    }
+    public List<TodoResponseDTO> uncheckList(){
+        System.out.println("-----FrontController list");
+        TodoUncheckController listCtrl=(TodoUncheckController)factory.getCtrl("uncheck");
+        List<TodoResponseDTO> uncheckList=listCtrl.uncheckTodo();
+        return uncheckList;
+    }
     public int register(String title, String content, String startDate, String endDate, int priority){
         System.out.println("-----FrontController register");
         TodoInsertController insertCtrl=(TodoInsertController)factory.getCtrl("register");
@@ -39,7 +54,7 @@ public class FrontController {
         int insert=insertCtrl.insertTodo(request);
         return insert;
     }
-    public int update(int seq,String title, String content, String startDate, String endDate, int priority){
+    public int update(int seq,String title, String content, String startDate,int check, String endDate, int priority){
         System.out.println("-----FrontController update");
         TodoUpdateController updateCtrl=(TodoUpdateController)factory.getCtrl("update");
         TodoRequestDTO request=TodoRequestDTO.builder()
@@ -47,6 +62,7 @@ public class FrontController {
                                 .title(title)
                                 .content(content)
                                 .startDate(startDate)
+                                .check(check)
                                 .endDate(endDate)
                                 .priority(priority)
                                 .build();
@@ -64,5 +80,11 @@ public class FrontController {
         TodoReadController readCtrl=(TodoReadController)factory.getCtrl("read");
         TodoResponseDTO response=readCtrl.selectTodo(seq);
         return response;
+    }
+    public List<TodoResponseDTO> sort(){
+        System.out.println("-----FrontController list");
+        TodoSortController listCtrl=(TodoSortController)factory.getCtrl("sort");
+        List<TodoResponseDTO> sort=listCtrl.sortTodo();
+        return sort;
     }
 }

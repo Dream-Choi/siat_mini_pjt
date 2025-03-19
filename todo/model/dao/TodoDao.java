@@ -2,6 +2,7 @@ package todo.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import todo.model.domain.TodoRequestDTO;
 import todo.model.domain.TodoResponseDTO;
@@ -29,12 +30,12 @@ public class TodoDao {
     }
 
     //상세보기
-    public TodoResponseDTO selectRow(int seq){
+    public Optional<TodoResponseDTO> selectRow(int seq){
         System.out.println("-------dao selectDao");
-        TodoResponseDTO response=null;
+        Optional<TodoResponseDTO> response=Optional.empty();
         for(i=0;i<list.size();i++){
             if(list.get(i).getSeq()==seq){
-                response=list.get(i);
+                response=Optional.of(list.get(i));
             }
         }
         return response;
@@ -60,6 +61,7 @@ public class TodoDao {
                 todo.setTitle(request.getTitle());
                 todo.setContent(request.getContent());
                 todo.setStartDate(request.getStartDate());
+                todo.setCheck(request.getCheck());
                 todo.setEndDate(request.getEndDate());
                 todo.setPriority(request.getPriority());
                 System.out.println("수정완료");
