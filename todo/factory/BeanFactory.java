@@ -6,6 +6,7 @@ import java.util.Map;
 import todo.ctrl.TodoDeleteController;
 import todo.ctrl.TodoInsertController;
 import todo.ctrl.TodoListController;
+import todo.ctrl.TodoReadController;
 import todo.ctrl.TodoUpdateController;
 import todo.service.TodoService;
 
@@ -19,6 +20,7 @@ public class BeanFactory {
         map.put("register", new TodoInsertController(service));
         map.put("update", new TodoUpdateController(service));
         map.put("delete", new TodoDeleteController(service));
+        map.put("read",new TodoReadController(service));
     }
     public static BeanFactory getInstance(){
         if(instance==null){

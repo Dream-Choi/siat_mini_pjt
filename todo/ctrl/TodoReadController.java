@@ -5,8 +5,10 @@ import todo.service.TodoService;
 
 public class TodoReadController {
     private TodoService service;
+    public TodoReadController(TodoService service){
+        this.service=service;
+    }
     public TodoReadController(){
-        service=new TodoService();
     }
     public TodoResponseDTO selectTodo(int seq){
         System.out.println("----------ctrl selectCtrl");

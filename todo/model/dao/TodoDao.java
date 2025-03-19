@@ -31,12 +31,13 @@ public class TodoDao {
     //상세보기
     public TodoResponseDTO selectRow(int seq){
         System.out.println("-------dao selectDao");
-        for(TodoResponseDTO todo:list){
-            if(todo.getSeq()==seq){
-                return todo;
+        TodoResponseDTO response=null;
+        for(i=0;i<list.size();i++){
+            if(list.get(i).getSeq()==seq){
+                response=list.get(i);
             }
         }
-        return null;
+        return response;
     }
 
     //삭제

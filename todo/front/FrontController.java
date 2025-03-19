@@ -5,6 +5,7 @@ import java.util.List;
 import todo.ctrl.TodoDeleteController;
 import todo.ctrl.TodoInsertController;
 import todo.ctrl.TodoListController;
+import todo.ctrl.TodoReadController;
 import todo.ctrl.TodoUpdateController;
 import todo.factory.BeanFactory;
 import todo.model.domain.TodoRequestDTO;
@@ -57,5 +58,11 @@ public class FrontController {
         TodoDeleteController deleteCtrl=(TodoDeleteController)factory.getCtrl("delete");
         int delete=deleteCtrl.deleteTodo(seq);
         return delete;
+    }
+    public TodoResponseDTO read(int seq){
+        System.out.println("-----FrontController read");
+        TodoReadController readCtrl=(TodoReadController)factory.getCtrl("read");
+        TodoResponseDTO response=readCtrl.selectTodo(seq);
+        return response;
     }
 }

@@ -16,7 +16,7 @@ public class TodoView {
             
         
             System.out.println("-----Todo Service Menu");
-            System.out.println("1. 목록보기 2. 작성 3. 수정 4. 삭제 99. 종료");
+            System.out.println("1. 목록보기 2. 작성 3. 수정 4. 삭제 5. 상세보기 99. 종료");
             System.out.println("원하는 번호 입력:");
             Scanner scan= new Scanner(System.in);
             int number= scan.nextInt();
@@ -33,7 +33,9 @@ public class TodoView {
                 case 4:
                     delete();
                     break;
-
+                case 5:
+                    read();
+                    break;
                 case 99:
                     System.out.println("시스템종료");
                     System.exit(0);
@@ -89,5 +91,13 @@ public class TodoView {
         int seq=scan.nextInt();
         int delete=front.delete(seq);
         System.out.println(delete);
+    }
+    public void read(){
+        System.out.println("-------Todo read");
+        Scanner scan=new Scanner(System.in);
+        System.out.print("상세보기");
+        int seq=scan.nextInt();
+        TodoResponseDTO response= front.read(seq);
+        System.out.println(response);
     }
 }
