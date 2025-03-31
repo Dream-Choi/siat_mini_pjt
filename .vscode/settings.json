@@ -1,7 +1,8 @@
 {
     "java.project.referencedLibraries": [
         "c:\\Users\\5-훈련용6\\Downloads\\lombok.jar",
-        "c:\\Users\\5-PC_Train6\\Downloads\\lombok.jar"
+        "c:\\Users\\5-PC_Train6\\Downloads\\lombok.jar",
+        "c:\\lombok.jar"
     ],
     "java.project.sourcePaths": [
         "."
