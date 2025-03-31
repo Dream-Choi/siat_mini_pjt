@@ -54,7 +54,7 @@ public class FrontController {
         int insert=insertCtrl.insertTodo(request);
         return insert;
     }
-    public int update(int seq,String title, String content, String startDate,int check, String endDate, int priority){
+    public int update(int seq,String title, String content, String startDate,String status, String endDate, int priority){
         System.out.println("-----FrontController update");
         TodoUpdateController updateCtrl=(TodoUpdateController)factory.getCtrl("update");
         TodoRequestDTO request=TodoRequestDTO.builder()
@@ -62,7 +62,7 @@ public class FrontController {
                                 .title(title)
                                 .content(content)
                                 .startDate(startDate)
-                                .check(check)
+                                .status(status)
                                 .endDate(endDate)
                                 .priority(priority)
                                 .build();

@@ -20,7 +20,7 @@ public class TodoDao {
                                     .seq(i++)
                                     .title(request.getTitle())
                                     .content(request.getContent())
-                                    .check(0)
+                                    .status(request.getStatus())
                                     .startDate(request.getStartDate())
                                     .endDate(request.getEndDate())
                                     .priority(request.getPriority())
@@ -61,7 +61,7 @@ public class TodoDao {
                 todo.setTitle(request.getTitle());
                 todo.setContent(request.getContent());
                 todo.setStartDate(request.getStartDate());
-                todo.setCheck(request.getCheck());
+                todo.setStatus(request.getStatus());
                 todo.setEndDate(request.getEndDate());
                 todo.setPriority(request.getPriority());
                 System.out.println("수정완료");

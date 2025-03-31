@@ -85,13 +85,12 @@ public class TodoView {
         System.out.print("시작일:");
         String startDate=scan.nextLine();
         System.out.print("완료 여부");
-        int check=scan.nextInt();
-        scan.nextLine();
+        String status=scan.nextLine();
         System.out.print("종료일:");
         String endDate=scan.nextLine();
         System.out.print("우선순위:");
         int priority=scan.nextInt();
-        int update=front.update(seq,title,content,startDate,check,endDate,priority);
+        int update=front.update(seq,title,content,startDate,status,endDate,priority);
         System.out.println(update);
     }
     public void delete(){

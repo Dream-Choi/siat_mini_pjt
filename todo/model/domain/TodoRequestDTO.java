@@ -13,7 +13,7 @@ public class TodoRequestDTO {
     private String title;
     private String content;
     private String startDate;
-    private int check;
+    private String status;
     private String endDate;
     private int priority;
 }
